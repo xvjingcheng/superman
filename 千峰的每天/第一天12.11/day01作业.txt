@@ -1,0 +1,33 @@
+1.简述python的优缺点及应用的场景？
+
+2.快捷键和DOS命令的练习？
+ctrl+a全选
+ctrl+c复制
+ctrl+v粘贴
+ctrl+x剪切
+ctrl+z撤销
+ctrl+s保存
+盘符：打开一个盘
+dir 目录
+md创建一个新的目录
+rd删除一个目录
+cd改变到指定目录
+exit推出
+cd..退回到上一目录
+cd\回到根目录
+cls清屏 
+
+3.将十进制数15转换为二进制，八进制，十六进制的值？
+
+4.计算(45-56)的结果，要求书写过程？
+
+5.总结Python和PyCharm安装步骤，形成文档保存
+
+6.编写变量，描述一个人的信息，输出到控制台
+	name，age，height，weight，hobby。。。
+7.键盘输入手机属性内容，这部手机价格正在打八折，格式化信息输出到控制台
+	brand：
+	price：
+	weight：
+	screen_size：
+	... ...

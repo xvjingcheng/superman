@@ -1,0 +1,94 @@
+1、实现功能：
+	列表为：[['Iphone8',6888],['MacPro',14800],['小米6',2499],['Coffee',31],['Book',80],['Nike Shoes',799]]
+	实现一个类似购物车的语句：
+	a用户循环输入编号(下标)可以将列表内的商品储存到一个新的列表(或字典)里面，当输入'q'时退出循环
+	b输出用户选择的商品和总价格
+list00 = [['Iphone8',6888],['MacPro',14800],['小米6',2499],['Coffee',31],['Book',80],['Nike Shoes',799]]
+list01 = []
+sum = 0
+for i in range(999999999999999):
+    a =input("请输入商品编号")
+    if a == "q":
+        if i ==0:
+            print("您并未选取商品")
+        else:
+            print("您选择的商品和价格分别为\n%s，总价为%d" %(list01,sum))
+        break
+    else:
+        a = int(a)
+        if a > len(list00):
+            print("请输入1到6选取商品")
+            continue
+        else:
+            sum += list00[a - 1][1]
+            list01.append(list00[a -1])
+            print(list01)
+2、制作4位字符组成随机验证码4位字符组成，不区分大小写
+	流程：
+	- 用户执行程序
+	- 给用户显示需要输入的验证码
+	- 用户输入的值
+		用户输入的值和显示的值相同时实现正确信息;
+		否则继续生成随机验证码继续等待用户输入
+	生成随机验证码代码示例：
+	# (print(chr(97))：输出结果为a)
+# import random
+# while 1:
+#     str01 = ""
+#     for i in range(4):
+#         char1 = random.choice([chr(random.randint(65, 90)), chr(random.randint(97, 122))])
+#         str01 += char1
+#     print(str01)
+#     str02 = input("请输入验证码")
+#     if str02.upper() == str01.upper():
+#         print("验证码正确")
+#         break
+#     else:
+#         print("验证码输入,请重新输入")
+3、有三个房间，有九个人
+	把这九个人随机分配到三个房间
+	每个房间人数保持一致
+import random
+nameList = ["张默", "宁财神", "李代沫", "房祖名", "柯震东", "高虎", "宋冬野", "尹相杰", "张耀扬"]
+sort_Room= []
+for i in range(1,4):
+    room = random.sample(nameList,3)
+    
+    for name in room:
+        nameList.remove(name)
+    sort_Room.append(room)
+    print(len(sort_Room))
+print(sort_Room)
+4、使用字典，编写景区一个景点查询工具，
+	要求：
+	菜单分为省/市/景点三级菜单
+	用户必须先输入省份查看全部地市信息
+	用户输入地市可以查看本地的所有景点信息
+	案例(不要复制这个字典，写一个你所在省份和邻近省份的)：
+	travel_map_dict = {
+		    "上海": {"崇明": ["崇明1", "崇明2", "崇明3", "崇明4"],
+			   "宝山": ["宝山1", "宝山2", "宝山3", "宝山4"],
+			   "奉贤": ["奉贤1", "奉贤2", "奉贤3", "奉贤4"]},
+
+		    "北京": {"昌平": ["昌平1", "昌平2", "昌平3", "昌平4"],
+			   "朝阳": ["朝阳1", "朝阳2", "朝阳3", "朝阳4"],
+			   "海淀": ["海淀1", "海淀2", "海淀3", "海淀4"]}}
+province = input("请输入省份")
+print(travel_map_dict.get(province).keys())
+city = input("请输入地市")
+print(travel_map_dict.get(province).get(city))
+
+5、编写代码，实现双色球彩票一键选号功能：
+		红球6个，号码在1—33之间，按从小到大排列
+		篮球一个，排列在红球后面
+		以字典的形式输出到控制台
+		例如:{"红球":[1,2,3,4,5,6],"蓝球":[1]}
+import random
+dict00 = {}
+a = random.sample(range(1,33),6)
+b = random.sample(range(1,15),1)
+
+dict00["红球"] = a
+dict00["篮球"] = b
+
+print(dict00)

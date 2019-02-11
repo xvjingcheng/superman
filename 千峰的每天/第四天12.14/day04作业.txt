@@ -1,0 +1,184 @@
+1、一个整数加上100和268后都是一个完全平方数，请问该数是多少
+import math
+for i in range(999999):
+
+    a = math.sqrt(i + 100)
+    b = math.sqrt(i + 268)
+    if a in range(1,i) and b in range(0,i):
+        print(i)
+2、有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+number = 0
+for i in range(1,5):
+    for j in  range(1,5):
+        for x in range(1,5):
+            if i == j or i == x or j == x or i == j == x:
+                continue
+            else:
+                number += 1
+                print(i,j,x)
+print("共有%d个无重复的三位数" %number)
+3、输入某年某月某日，判断这一天是这一年的第几天
+year = int(input("请输入年份"))
+month = int(input("请输入月份"))
+day00 = int(input("请输入几号"))
+day01 = 0
+for i in range(1,13):
+    if i == month:
+        day01 += day00
+        print("今天是这一年的第%d天" %day01)
+        break
+    else:
+        if i == 4 or i == 6 or i == 9 or i ==11:
+            day01 += 30
+        elif i == 2 :
+            if ((year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0)):
+                day01 += 29
+            else:
+                day01 +=28
+        else:
+            day01 += 31
+4、题目：企业发放的奖金根据利润提成。
+   a.利润(I)低于或等于10万元时，奖金可提10%；
+   b.10万到20万之间时，低于10万元的部分按10%提成，高于10万元的部分，可提成7.5%；
+   c.20万到40万之间时，高于20万元的部分，可提成5%；
+   d.40万到60万之间时高于40万元的部分，可提成3%；
+   e.60万到100万之间时，高于60万元的部分，可提成1.5%，
+   f.高于100万元时，超过100万元的部分按1%提成，
+   从键盘输入当月利润I，求应发放奖金总数？
+
+ 5、将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5。
+a = int(input("请输入一个正整数"))
+prime = 2
+for i in range(a+1):
+    if a <= prime:
+        print("%d*1"%a,end="")
+        break
+    else:
+        if a % prime == 0 :
+            a = a / prime
+            print("%d*"%prime,end="")
+        else:
+            prime += 1
+ 6、现有字符串word = "ghSk 45s Df,9 87.fs sF&09f8ff "
+   a.分别统计出word中英文字母、空格、数字和其它字符的个数。
+   b.将word中的小写字母全部转换成大写字母，输出到控制台。
+   c.将word中的小写字母和大写互换(比如Hello-->hELLO)，输出到控制台。
+   d.请将word字符串的数字取出，并输出成一个新的字符串。
+word = "ghSk 45s Df,9 87.fs sF&09f8ff "
+for i in word:
+    if ord(i) == 32:
+        a += 1
+    elif ord(i) in range(48,58):
+        b +=1
+    elif ord(i) in (range(65,91) or range(97,123)):
+        c += 1
+    else:
+        d +=1
+print("空格的数量是%d，数字的数量是%d，字母的数量是%d，其他字符的数量是%d" %(a,b,c,d))
+print(str.upper(word))
+print(str.swapcase(word))
+	for i in word:
+    if ord(i) in range(48, 58):
+        print(i,end="")
+ 7、实现用户输入用户名和密码，当用户名为 dushine且密码为123时，显示登陆成功，否则登陆失败，失败时允许重复输入三次
+# for i in range(4):
+#     a = input("请输入用户名：")
+#     b = input("请输入密码：")
+#     if a == "dushine" and b == "123":
+#         print("登陆成功")
+#         break
+#     else:
+#         print("输入错误请重新输入")
+#         continue
+ 8、
+   a.使用while循环实现输出2-3+4-5+6.....+100的和
+a = 2
+sum = 0
+while a <=100:
+    if a%2 == 0:
+        sum +=a
+    else:
+        sum -= a
+    a +=1
+print(sum)
+   b.实现双色球的彩票功能。规则：从36个红球中随机选择不重复的6个数，从15个篮球中随机选择1个组成一注彩票，可以选择买多注。
+import random
+a = random.sample(range(1,33),6)
+b = random.sample(range(1,15),1)
+print(a,b)
+
+ 9、分别书写数字5,10,32,7的二进制表示
+a =int( input("输入一个数字"))
+for i in range(8, 0,-1):
+    if a >= 2**(i-1):
+        a = a - 2**(i -1)
+        print(1,end="")
+    else:
+        if a == 1 and i == 1:
+            print(1, end="")
+            break
+        else:
+            print(0, end="")
+        continue
+ 10、有如下变量，请按照要求实现每个功能
+	name = " aleX "
+	a.移除name变量对应的值两边的空格，并输入移除有的内容 
+	b.判断name变量对应的值是否以 "al"开头，并输出结果
+	c.判断name变量对应的值是否以 "X"结尾，并输出结果
+	d.将name变量对应的值中的 " l" 替换为 " p"，并输出结果
+	e.将name变量对应的值根据 " l" 分割，并输出结果。
+	f.请问，上一题 e分割之后得到值是什么类型？
+	g.将name变量对应的值变大写，并输出结果
+	h.将name变量对应的值变小写，并输出结果
+	i.请输出name变量对应的值的第2个字符？
+	j.请输出name变量对应的值的前3个字符？
+	k.请输出name变量对应的值的后2个字符？
+	l.请输出name变量对应的值中 "e" 所在索引位置？
+
+
+附加题(不要求做)：
+1.有一分数序列：
+  2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和
+sum = 0
+a = 1
+b = 2
+for i in range(1,21):
+    if i == 1:
+        sum += 2/1
+    else:
+        sum +=(a + b)/ b
+        b = a + b
+print(sum)
+2.使用循环结构输出如下所示的图形。
+
+          * 
+        *   * 
+      *       * 
+    *           * 
+  *               * 
+*                   * 
+  *               * 
+    *           * 
+      *       * 
+        *   * 
+          * 
+for i in range(1,12):
+    if i == 1 or i == 11:
+        print(" "*10,"*")
+    elif i <=6:
+        print(" "*2*(6-i),"*"," "*4*(i - 2)," *")
+    else:
+        print(" "*2*(i -6),"*"," "*4*(10 - i)," *")
+--------------------- 
+         *   
+        * *   
+       * * *   
+      * * * *   
+     * * * * *   
+    * * * * * *   
+   * * * * * * *   
+  * * * * * * * *   
+ * * * * * * * * *   
+* * * * * * * * * *
+for i in range(1,11):
+    print(" "*(10-i),"* "*i)
